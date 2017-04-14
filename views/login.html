@@ -1,0 +1,16 @@
+<%include ./common/header.html%>
+<div id="sj-login">
+  <h1 class="title"><%= title %></h1>
+  <form class="login">
+    <div>
+      <label><span>用户 ID：</span><input type="text" name="id" required v-model="params.id"></label>
+    </div>
+    <div>
+      <label><span>登录密码：</span><input type="password" name="pwd" required v-model="params.pwd"></label>
+    </div>
+    <div class="submit">
+      <button @click.stop.prevent="login" type="submit">登录</button>
+    </div>
+  </form>
+</div>
+<%include ./common/footer.html%>

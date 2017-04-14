@@ -1,0 +1,27 @@
+.title{
+	text-align: center;
+	margin-bottom: 20%;
+}
+.login>div>label{
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: .5rem;
+}
+.login>div>label input{
+	height: .6rem;
+	border: none;
+	outline: none;
+}
+.submit{
+	text-align: center;
+}
+.submit>button{
+	display: inline-block;
+	width: 2rem;
+	height: .8rem;
+	text-align: center;
+	line-height: .8rem;
+	border-radius: .4rem;
+	font-size: 16px;
+}
