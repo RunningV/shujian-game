@@ -1,82 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-   <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/css/style.css' />
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      (function adapt(designWidth, rem2px){
-        var num = designWidth/rem2px;
-        var w = document.documentElement.clientWidth;
-        w = w > designWidth ? designWidth : w;
-        document.documentElement.style.cssText = "font-size:" +  w/num + 'px !important';
-      })(750,100);
-    </script>
-    <style>
-    	.title{
-    		text-align: center;
-    		margin-bottom: 20%;
-    	}
-    	.login>div>label{
-    		display: block;
-    		width: 100%;
-    		border-bottom: 1px solid #ccc;
-    		margin-bottom: .5rem;
-    	}
-    	.login>div>label input{
-    		height: .6rem;
-    		border: none;
-    		outline: none;
-    	}
-    	.submit{
-    		text-align: center;
-    	}
-    	.submit>button{
-    		display: inline-block;
-    		width: 2rem;
-    		height: .8rem;
-    		text-align: center;
-    		line-height: .8rem;
-    		border-radius: .4rem;
-    		font-size: 16px;
-    	}
-    	.login>div>label{}
-    </style>
-  </head>
-  <body>
-    <h1 class="title"><%= title %></h1>
-    <form class="login">
-    	<div>
-    		<label><span>用户 ID：</span><input type="text" name="id" required value="bboy"></label>
-    	</div>
-    	<div>
-    		<label><span>登录密码：</span><input type="password" name="pwd" required value="MYTEST001"></label>
-    	</div>
-    	<div class="submit">
-    		<button id="submit" type="submit">登录</button>
-    	</div>
-    </form>
-    <script>
-    	/*$(function() {
-    		var socket = io();
-    		// socket.on()
-    		$('#submit').click(function(e) {
-    			var data = {
-    				id: $("input[name='id']").val(),
-    				pwd: $("input[name='pwd']").val()
-    			};
-    			console.log(data)
-    			socket.emit('login', data)
-	    		event.preventDefault();
-	    		return false; 
-	    	})
-    	})*/
-    </script>
-  </body>
-</html>
+<%include ./common/header.html%>
+<div>
+  <h1 class="title"><%= title %></h1>
+
+ <!--  <h1>获取的消息</h1>
+  <ul v-if="messages.length > 0">
+    <li v-for="(item, index) in messages" :key="index" v-html="item"></li>
+  </ul>
+  <div class="send"><input type="text" v-model="order"><button @click="sendOrder">发送</button></div> -->
+</div>
+<%include ./common/footer.html%>

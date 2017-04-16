@@ -25,3 +25,24 @@
 	border-radius: .4rem;
 	font-size: 16px;
 }
+
+.send{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: .8rem;
+	padding: .2rem;
+	background-color: #ccc;
+}
+.send input{
+	width: 80%;
+	height: .4rem;
+	outline: none;
+	border: none;
+}
+.send button{
+	width: 20%;
+	height: .4rem;
+}

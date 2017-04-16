@@ -23,31 +23,43 @@ var server = new net.Socket({
 var loginData = null;
 
 io.on('connection', function(socket) {
-	socket.on('send', function(data) {
+	socket.on('login', function(data) {
 		console.log(data);
 		loginData = data;
 		server.connect(5555, '123.206.188.205', function() {
 		  console.log('connect success !')
 		  server.write('n\n');
 		})
-	})
+	});
+  socket.on('order', function(data) {
+    server.write(data);
+    server.write('\n');
+  });
+  socket.on('logout', function() {
+    server.write('quit');
+    server.write('\n');
+  })
 })
 
 server.on('data', function(buffer) {
 	var buf = convert(buffer, 'utf8', 'gb2312');
-	var buf2Str = buf.toString().replace(/(\s+|\n)/gm, '');
-	var inputId = buf2Str.match(/'您的英文名字'/gm)
-  console.log(inputId)
-	console.log(buf2Str)
-	if(buf2Str.match('(ID)')) {
-		console.log('hi')
+	var buf2Str = buf.toString().replace(/(\s+|\n)/gm, 'BLANK');
+  console.log(buf2Str)
+	if(buf2Str.match('英文名字')) {
+		console.log('输入英文ID')
 		server.write(loginData.id)
 		server.write('\n')
-	} else if (buf2Str.match('(passwd)')) {
+	} else if (buf2Str.match('识别密码')) {
+    console.log('密码(passwd)')
     server.write(loginData.pwd)
     server.write('\n')
-	}
-	io.emit('hello', buf2Str);
+	} /*else if(buf2Str.match('《书剑·2012》已处在开放阶段')) {
+    console.log('登录成功')
+    io.emit('success', buf2Str);
+  } */else {
+    io.emit('success', buf2Str);
+  }
+
 })
 
 

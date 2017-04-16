@@ -10,7 +10,13 @@
     </div>
     <div class="submit">
       <button @click.stop.prevent="login" type="submit">登录</button>
+      <button @click.stop.prevent="logout" type="submit">退出</button>
     </div>
   </form>
+ <h1>获取的消息</h1>
+  <ul v-if="messages.length > 0">
+    <li v-for="(item, index) in messages" :key="index" v-html="item"></li>
+  </ul>
+  <div class="send"><input type="text" v-model="order"><button @click="sendOrder">发送</button></div>
 </div>
 <%include ./common/footer.html%>
