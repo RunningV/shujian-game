@@ -50,3 +50,10 @@ ul{
 	overflow: hidden;
 	padding-bottom: 1rem;
 }
+ul li{
+	list-style: none;
+	line-height: .5rem;
+	padding-left: .2rem;
+	background-color: #ccc;
+	color: #fff;
+}

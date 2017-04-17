@@ -74,9 +74,8 @@
 					/* Puts everything back to normal */
 					"0;0m": "orange"
 				};
-				var colorData =	data.replace(/\[(\d{1,2};)?\d{1,2}m/gm, function(color) {
-					console.log(color);
-					const colorValue = colors[color] ? colors[color] : 'red';
+				var colorData =	data.replace(/\[(\d*\;?\d{1,2}m)/gm, function(color, value) {
+					const colorValue = colors[value] ? colors[value] : 'red';
 					return `</span><span style="color: ${colorValue}">`;
 				});
 				colorData = colorData.slice(0, 7) === '</span>' ? colorData.slice(7) : colorData;
