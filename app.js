@@ -38,12 +38,13 @@ io.on('connection', function(socket) {
   socket.on('logout', function() {
     server.write('quit');
     server.write('\n');
+    io.close();
   })
 })
 
 server.on('data', function(buffer) {
 	var buf = convert(buffer, 'utf8', 'gb2312');
-	var buf2Str = buf.toString().replace(/(\s+|\n)/gm, 'BLANK');
+	var buf2Str = buf.toString()//.replace(/(\s+|\n)/gm, 'BLANK');
   console.log(buf2Str)
 	if(buf2Str.match('英文名字')) {
 		console.log('输入英文ID')

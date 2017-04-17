@@ -20,10 +20,17 @@
 				IO.emit('login', this.params)
 			},
 			message: function(data) {
-				// console.log(data)
-				// const colorData = data.replace(/\S?\[(\S{1,5})m/gm, 'color');
-				const colorData = this.colour(data);
-				this.messages = this.messages.concat(colorData);
+				console.log(data.match(/\S+\r/gm))
+				var dataArray = data.match(/\S+\r/gm)
+				if(dataArray) {
+					dataArray = dataArray.filter(item => {
+						return !!item;
+					});
+					dataArray = dataArray.map(item => {
+						return this.colour(item);
+					});
+					this.messages = this.messages.concat(dataArray);
+				}
 			},
 			colour: function(data) {
 				const colors = {
@@ -67,15 +74,13 @@
 					/* Puts everything back to normal */
 					"0;0m": "orange"
 				};
-				var colorData =	data.replace(/(\d{1,2};)?\d{1,2}m/gm, function(color) {
+				var colorData =	data.replace(/\[(\d{1,2};)?\d{1,2}m/gm, function(color) {
 					console.log(color);
 					const colorValue = colors[color] ? colors[color] : 'red';
-					return `<span style="color: ${colorValue}">`;
+					return `</span><span style="color: ${colorValue}">`;
 				});
-				colorData = colorData.replace(/(\s\[){1,2}/gm, function(data, o) {
-					console.log(data, o, 11)
-				});
-				return colorData.split('BLANK');
+				colorData = colorData.slice(0, 7) === '</span>' ? colorData.slice(7) : colorData;
+				return colorData;
 			},
 			sendOrder: function() {
 				IO.emit('order', this.order);

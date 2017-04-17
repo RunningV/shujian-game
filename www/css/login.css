@@ -46,3 +46,7 @@
 	width: 20%;
 	height: .4rem;
 }
+ul{
+	overflow: hidden;
+	padding-bottom: 1rem;
+}
