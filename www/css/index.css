@@ -10,6 +10,20 @@ header{
 	top: 0;
 	text-align: center;
 }
+header h3{
+	margin: 0;
+	padding: 0;
+}
+header button{
+	position: absolute;
+	top: .1rem;
+	right: .2rem;
+	width: 1rem;
+	height: .6rem;
+	border: none;
+	outline: none;
+	background-color: #eee;
+}
 footer{
 	bottom: 0;
 }

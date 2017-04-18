@@ -1,6 +1,9 @@
 <%include ./common/header.html%>
 <div id="sj-index" class="main-box index">
-	<header><%= title %></header>
+	<header>
+		<h3><%= title %></h3>
+		<button @click.stop="logout">退出</button>
+	</header>
 	<section>
 		<aside></aside>
 		<div class="content">
