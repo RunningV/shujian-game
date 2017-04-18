@@ -38,7 +38,7 @@ io.on('connection', function(socket) {
   socket.on('logout', function() {
     server.write('quit');
     server.write('\n');
-    io.close();
+    server.destroy();
   })
 })
 
@@ -54,16 +54,20 @@ server.on('data', function(buffer) {
     console.log('密码(passwd)')
     server.write(loginData.pwd)
     server.write('\n')
-	} /*else if(buf2Str.match('《书剑·2012》已处在开放阶段')) {
-    console.log('登录成功')
-    io.emit('success', buf2Str);
-  } */else {
-    io.emit('success', buf2Str);
+    io.emit('success', ' mock login success')
+	} else {
+    io.emit('message', buf2Str);
   }
 
 })
 
-
+server.on('end', function(data) {
+  console.log(data, 11)
+  console.log(server, 13)
+})
+server.on('close', function(data) {
+  console.log(data, 12)
+})
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');

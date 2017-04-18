@@ -1,11 +1,16 @@
 <%include ./common/header.html%>
-<div>
-  <h1 class="title"><%= title %></h1>
-
- <!--  <h1>获取的消息</h1>
-  <ul v-if="messages.length > 0">
-    <li v-for="(item, index) in messages" :key="index" v-html="item"></li>
-  </ul>
-  <div class="send"><input type="text" v-model="order"><button @click="sendOrder">发送</button></div> -->
+<div id="sj-index" class="main-box index">
+	<header><%= title %></header>
+	<section>
+		<aside></aside>
+		<div class="content">
+			<ul v-if="messages.length > 0" ref="messageBox">
+		   	<li v-for="(item, index) in messages" :key="index" v-html="item"></li>
+		 	</ul>
+		</div>
+	</section>
+	<footer>
+		<div class="send"><input type="text" v-model="order"><button @click.stop="sendOrder">发送</button></div>
+	</footer>
 </div>
 <%include ./common/footer.html%>

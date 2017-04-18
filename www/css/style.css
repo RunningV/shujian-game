@@ -1,8 +1,12 @@
-body {
-  padding: 50px;
+html, body {
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
-
-a {
-  color: #00B7FF;
+.main-box{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
